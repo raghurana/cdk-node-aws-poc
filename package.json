@@ -1,9 +1,15 @@
 {
-  "name": "wdh-poc",
+  "name": "cdk-node-aws-poc",
   "version": "1.0.0",
   "private": true,
+  "author": "Raghu Rana",
+  "license": "ISC",
   "workspaces": [
-    "lambdas/*",
-    "shared"
-  ]
+    "packages/*"
+  ],
+  "scripts": {
+    "predeploy": "chmod +x packages/**/scripts/*.sh",
+    "deploy": "npm run deploy --workspaces --if-present",
+    "destroy": "npm run destroy --workspaces --if-present"
+  }
 }

@@ -1,0 +1,28 @@
+input TransformedDataInput {
+  categoryName: String!
+  categoryType: String!
+  dataType: String!
+  ledgerId: String!  
+  eventDataJson: AWSJSON!
+}
+
+type TransformedDataSubscription @aws_iam @aws_api_key @aws_cognito_user_pools {
+  tradeEvent: String!
+  timestampUtc: AWSDateTime!
+  ledgerId: String!
+  eventDataJson: AWSJSON!
+}
+
+type Query {
+  hello: String @aws_api_key @aws_cognito_user_pools
+}
+
+type Mutation {
+  saveTransformedData(id: ID!, input: TransformedDataInput!): TransformedDataSubscription @aws_iam
+}
+
+type Subscription {
+  onTransformedData(id: ID): TransformedDataSubscription @aws_iam @aws_api_key @aws_cognito_user_pools @aws_subscribe(mutations: ["saveTransformedData"])
+}
+
+```

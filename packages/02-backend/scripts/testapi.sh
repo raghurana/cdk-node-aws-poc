@@ -1,0 +1,1 @@
+curl -X POST -H "Content-Type: application/json" -H "x-api-key: $2" -d @packages/02-backend/scripts/testdata.json $1

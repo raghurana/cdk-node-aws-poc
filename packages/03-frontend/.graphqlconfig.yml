@@ -1,0 +1,22 @@
+projects:
+  Codegen Project:
+    schemaPath: schema.json
+    includes:
+      - src/appsync/**/*.ts
+    excludes:
+      - ./amplify/**
+      - src/appsync/index.ts
+      - src/appsync/config.ts
+    extensions:
+      amplify:
+        codeGenTarget: typescript
+        generatedFileName: src/appsync/index.ts
+        docsFilePath: src/appsync
+        region: ap-southeast-2
+        apiId: diqjscwbirgtfiekv7ypc2zrte
+        frontend: javascript
+        framework: react
+        maxDepth: 2
+extensions:
+  amplify:
+    version: 3

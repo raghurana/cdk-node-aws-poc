@@ -1,0 +1,34 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Rest API for poc",
+  "private": true,
+  "author": "Raghu Rana",
+  "license": "ISC",
+  "scripts": {
+    "dev": "tsnd --respawn --cls local-server.ts",
+    "build:lambda": "rm -rf dist && esbuild lambdas.ts --bundle --minify --sourcemap --platform=node --target=es2020 --external:@aws-sdk/* --outfile=dist/index.js",
+    "postbuild:lambda": "cd dist && zip -r index.zip index.js*",
+    "deploy": "export STACK_NAME=poc-dev && npm run build:lambda && ./scripts/all.sh"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.130",
+    "@types/body-parser": "^1.19.5",
+    "esbuild": "^0.19.9",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.478.0",
+    "@aws-sdk/client-qldb": "^3.477.0",
+    "@aws-sdk/client-s3": "^3.474.0",
+    "@aws-sdk/client-sfn": "^3.476.0",
+    "@aws-sdk/node-http-handler": "^3.374.0",
+    "amazon-qldb-driver-nodejs": "^3.1.0",
+    "body-parser": "^1.20.2",
+    "dynamodb-data-types": "^4.0.1",
+    "jsonschema": "^1.4.1",
+    "restana": "^4.9.7",
+    "serverless-http": "^3.2.0"
+  }
+}

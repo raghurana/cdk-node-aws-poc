@@ -1,0 +1,18 @@
+{
+  "data": {
+    "dataSupplierCode": "ABC123",
+    "intermediaryID": "IM-999",
+    "intermediaryAuthorization": "Baseline",
+    "transactionBrokerFees": 1.88,
+    "transactionWaterAuthFees": "100",
+    "intermediaryIDIndividual": "IMI-997"
+  },
+  "metaData": {
+    "categoryId": "6",
+    "categoryName": "Markets",
+    "categoryType": "PreTrade",
+    "dataType": "BuySellOfer",
+    "dataVersion": "1",
+    "schemaId": "S0001"
+  }
+}
